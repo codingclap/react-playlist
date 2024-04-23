@@ -1,6 +1,6 @@
 function App(){
     return (
-        <h1> Chai with React | </h1>
+        <h1> Chai aur React | Anuj Kumar  </h1>
     );
 }
 

@@ -6,7 +6,6 @@ import Card from './Card.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-    <Card />                                    
+    <App />                       
   </React.StrictMode>
 )
