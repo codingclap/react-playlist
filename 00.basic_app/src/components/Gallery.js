@@ -1,17 +1,21 @@
-
-export function Profile(img){
+ 
+export function Profile(image){
      return(
-          <img src={'images/'+img.url} alt="" />
+          <img src={image.firstImage} alt="" />
      );
 }
 
 
 
-function Gallery(Name){
+function Gallery(profile){
      return(
+          <>
           <section>
-               <h2>{Name.userName}</h2> 
+               <h2>{profile.name}</h2> 
           </section>
+
+          
+          </>
      )
 }
 
