@@ -1,4 +1,4 @@
- import { useState } from 'react'
+import { useState } from 'react'
 
 //###################### Fibre and reconciliation ############################
 //########## Fibre:
@@ -9,12 +9,12 @@
 /*(1) The algorithm React uses to diffrence between one tree with another to determine which parts need to be changed.*/
 
 
-function App() {
+function basiCount() {
 
   let [counter, setCount] = useState(0)        // 0 is a default value where to start counting
 
   let addValue = () => {
-    setCount(()=>{
+    setCount(() => {
       return counter + 1
     })
   }
@@ -25,11 +25,11 @@ function App() {
   return (
     <>
       <div className="container m-auto text-center mt-10">
-
-        <h1 className="bg-green-400 m-auto font-semibold inline-flex p-5 rounded-xl text-4xl sm:text-5xl">The Bus Have {counter} Passenger For Now!</h1>
+        <h2 className="text-white text-4xl mb-10">1. React - useState</h2>
+        <h1 className="bg-green-400 m-auto font-semibold inline-flex p-5 rounded-xl text-3xl sm:text-4xl">The Bus Have {counter} Passenger For Now!</h1>
 
         <div className="mt-20">
-          <button className="inline-flex justify-center rounded-lg text-md font-semibold py-2.5 px-4 bg-slate-200 text-black hover:bg-slate-300 -my-2.5 ml-8" onClick={addValue}>Add Value</button>  
+          <button className="inline-flex justify-center rounded-lg text-md font-semibold py-2.5 px-4 bg-slate-200 text-black hover:bg-slate-300 -my-2.5 ml-8" onClick={addValue}>Add Value</button>
           <button className="inline-flex justify-center rounded-lg text-md font-semibold py-2.5 px-4 bg-slate-200 text-black hover:bg-slate-300 -my-2.5 ml-8" onClick={removeValue}>Remove Value</button>
         </div>
 
@@ -38,4 +38,4 @@ function App() {
   )
 }
 
-export default App
+export default basiCount
