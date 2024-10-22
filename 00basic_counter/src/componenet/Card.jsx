@@ -1,5 +1,5 @@
 
-function Card({heading, btnText}) {         // De-structuring of props to heading
+function Card({heading, btnText="Click button!"}) {         // De-structuring of props to heading
  
     return (
         <>

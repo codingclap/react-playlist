@@ -14,9 +14,10 @@ function basiCount() {
   let [counter, setCount] = useState(0)        // 0 is a default value where to start counting
 
   let addValue = () => {
-    setCount(() => {
-      return counter + 1
-    })
+    setCount(counter + 1)                            // If we repeate this line at 3 times but its works as normally it update value by + 1 
+    // setCount((previous) => previous + 1 )         // If we wanted to the previous updated value in useState then we can use this syntex
+    // setCount((previous) => previous + 1 ) 
+    // setCount((previous) => previous + 1 ) 
   }
   let removeValue = () => {
     setCount(counter - 1)
