@@ -8,9 +8,7 @@ function Bgchnage() {
     <>
 
       <div className="w-screen h-screen" style={{ backgroundColor: color }}>
-
-
-
+  
         <div className="fixed flex flex-wrap justify-center bottom-10 inset-x-0 px-2">
           {/* Navbar */}
             <div className="flex flex-wrap justify-center gap-3 px-3 py-2 bg-white rounded-3xl">
