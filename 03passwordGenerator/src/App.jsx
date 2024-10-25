@@ -43,7 +43,7 @@ const copyPasswordClipboard = useCallback( () => {
     window.navigator.clipboard.writeText(password)    // Copy the selected Text
     
     passwordReff.current?.select();                     // Highlight the selected Text
-    passwordReff.current?.setSelectionRange(0, 99);      // Highlight and selecte the Text within range
+    passwordReff.current?.setSelectionRange(0, 99);      // Highlight and select the Text within range
 }, [password])
 
 
