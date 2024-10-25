@@ -5,7 +5,8 @@ import Layout from './Layout'
 import Home from './componenets/Home/Home'
 import About from './componenets/About/About'
 import Contact from './componenets/Contact/Contact'
-import Github from './componenets/Github/Github'
+import  Github from './componenets/Github/Github'
+
 import './index.css'
 
 // Routing Option: 1

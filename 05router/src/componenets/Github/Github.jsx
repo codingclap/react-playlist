@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react'
 
 export default function Github() {
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
     useEffect(() => {
         fetch('https://api.github.com/users/codingclap')
             .then(response => response.json())
@@ -19,3 +19,5 @@ export default function Github() {
         </>
     )
 }
+
+
