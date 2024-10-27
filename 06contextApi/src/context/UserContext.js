@@ -4,7 +4,7 @@ import React, {createContext} from 'react';
 React context-API allow you to easily access data at diffrent level of the component tree without passing prop to every level
 */
 
-export const UserContext = createContext();
+const UserContext = createContext();
 
 export default UserContext;             
 
