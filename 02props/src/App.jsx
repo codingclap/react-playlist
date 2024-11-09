@@ -42,7 +42,7 @@ function App() {
 
       {/*Task-4: Generate Random Number  */}
 
-      <RandomNum display={random} setRandom={setRandomNo}/>
+      <RandomNum display={random} setRandomNo={setRandomNo}/>
     </div>
   )
 }

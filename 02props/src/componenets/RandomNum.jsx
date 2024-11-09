@@ -1,12 +1,12 @@
 
 
-export default function RandomNum({display, setRandom}){
+export default function RandomNum({display, setRandomNo}){
 
 
 
 const genrateRandomNo = () => {
     const randomNo =  Math.floor(Math.random() * 100)
-    setRandom(randomNo); 
+    setRandomNo(randomNo); 
 }
 
     return(
