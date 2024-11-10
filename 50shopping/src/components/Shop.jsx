@@ -1,15 +1,42 @@
+import { useEffect, useState } from "react"
+import { ClipLoader } from 'react-spinners';
 
-export default function Card(props) {
+export default function Shop() {
 
+    const [loading, setLoading] = useState(true);
+    const [records, setRecord] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const response = await fetch('https://fakestoreapi.com/products')
+            const finalRecord = await response.json();
+            setRecord(finalRecord)
+        } catch (error) {
+            console.error(`Error Fetching Product:`, { error })
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    if (loading) {
+        return (
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto my-20">
+                <ClipLoader color="#4A90E2" size={50} /> 
+            </div>
+        )
+    }
     return (
-
 
         <div className="container mx-auto mt-10">
             <div className="flex gap-10 justify-center flex-wrap">
 
                 {/* COlumn -1 */}
                 {
-                    props.records.map((data) => (
+                    records.map((data) => (
 
                         <div key={data.id} className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                             <a className="relative mx-3 mt-3 flex justify-center h-60 overflow-hidden rounded-xl" href="#">
