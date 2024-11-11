@@ -24,7 +24,7 @@ export default function Shop() {
 
     if (loading) {
         return (
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto my-20">
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto my-20">
                 <ClipLoader color="#4A90E2" size={50} /> 
             </div>
         )
