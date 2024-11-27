@@ -4,7 +4,7 @@ const person = {
     isMarried : true
 }
 
-const output1 = {...person, name:"mandeep"}
+const output1 = {...person, name:"mandeep", pop:'sng'}
 
 console.log(output1)
 
