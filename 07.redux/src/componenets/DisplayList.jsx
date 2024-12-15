@@ -2,8 +2,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { removeTodo } from '../features/todoSlice'
 
 export default function DisplayList() {
-    const allTodo = useSelector(state => state.todos);
-    console.log(allTodo)
+     const allTodo = useSelector(state => state.todos);
+     
+    let finaldata = [];
+        const data = localStorage.getItem('todoItem')
+        finaldata = data ? JSON.parse(data) : [];
+    
+
     return (
         <>
             <h3 className="mb-4 text-2xl font-bold leading-none tracking-tight text-gray-700 md:text-5xl lg:text-3xl dark:text-white text-center mt-6 py-10">Grocery List:</h3>
@@ -29,11 +34,12 @@ export default function DisplayList() {
                         </tr>
                     </thead>
                     <tbody>
+
                         {
-                            allTodo.map((todo) => (
-                                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            finaldata.map((todo) => (
+                                <tr key={todo.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                     #
+                                        #
                                     </th>
                                     <td className="px-6 py-4">
                                         {todo.name}
@@ -43,7 +49,7 @@ export default function DisplayList() {
                                     </td>
 
                                     <td className="px-6 py-4">
-                                        <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                        <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
                                     </td>
                                 </tr>
                             ))
