@@ -16,12 +16,14 @@ export const todoSlice = createSlice({
                 name: action.payload.name,   
                 amount: action.payload.amount
             }
-            console.log(state) 
+           
             state.todos.push(todo)
             localStorage.setItem('todoItem', JSON.stringify(state.todos.map((item)=>item))) 
         },
         removeTodo: (state, action) => { 
             state.todos = state.todos.filter((prev) => prev.id !== action.payload)
+            
+            localStorage.setItem('todoItem', JSON.stringify(state.todos.filter((prev) => prev.id !== action.payload))) 
         }
     }
 })  
