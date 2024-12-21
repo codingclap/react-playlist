@@ -2,7 +2,7 @@ import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 // Default State
 const initialState = {
-    todos: JSON.parse(localStorage.getItem('todoItem'))
+    todos: localStorage.getItem('todoItem') ? JSON.parse(localStorage.getItem('todoItem')) : []
 }
 
  
@@ -17,7 +17,7 @@ export const todoSlice = createSlice({
                 amount: action.payload.amount
             }
            
-            state.todos.push(todo)
+            state.todos.push(todo);
             localStorage.setItem('todoItem', JSON.stringify(state.todos.map((item)=>item))) 
         },
         removeTodo: (state, action) => { 
