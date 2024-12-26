@@ -1,13 +1,28 @@
-import { useDispatch, useSelector } from "react-redux"
-import { removeTodo } from '../features/todoSlice'
+import { useDispatch, useSelector } from "react-redux";
+import { removeTodo, edittodo } from '../features/todoSlice';
+import { useEffect } from "react";
 
-export default function DisplayList() {
+
+export default function DisplayList({ setName, setAmount, setEditStatus, setUiqueID}) {
     const allTodo = useSelector(state => state.todos);
     const dispatch = useDispatch();
-    let finaldata = [];
-    const data = localStorage.getItem('todoItem')
-    finaldata = data ? JSON.parse(data) : [];
 
+    let finaldata = [];
+    const data = localStorage.getItem('todoItem');
+    finaldata = data ? JSON.parse(data) : [];
+    
+    useEffect(() => {
+        const data = localStorage.getItem('todoItem');
+        finaldata = data ? JSON.parse(data) : [];
+      }, [setUiqueID]); // Dependency array
+
+    const editHandler = (id, name, amount) => {
+        dispatch(edittodo)
+        setName(name);
+        setAmount(amount);
+        setUiqueID(id)
+        setEditStatus(true); 
+    }
 
     return (
         <>
@@ -49,6 +64,7 @@ export default function DisplayList() {
                                     </td>
 
                                     <td className="px-6 py-4">
+                                        <button onClick={() => editHandler(todo.id, todo.name, todo.amount)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>&nbsp; || &nbsp;
                                         <button onClick={() => dispatch(removeTodo(todo.id))} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
                                     </td>
                                 </tr>

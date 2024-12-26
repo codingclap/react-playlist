@@ -1,16 +1,25 @@
-import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import {addTodo} from '../features/todoSlice';
+import { addTodo, edittodo } from '../features/todoSlice';
 
-export default function AddTodo() {
-    const [name, setName] = useState("");
-    const [amount, setAmount] = useState("");
+export default function AddTodo({ name, setName, amount, setAmount, editStatus, setEditStatus, uiqueID, setUiqueID }) {
+
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addTodo({name, amount}));
-        
+
+        if (editStatus === false) {
+            dispatch(addTodo({ name, amount }));
+            setName("");
+            setAmount("");
+        } else {
+            dispatch(edittodo({uiqueID, name, amount }));
+            setEditStatus(false);
+            setUiqueID("");
+            setName("");
+            setAmount("");
+        }
+
     }
 
     return (
